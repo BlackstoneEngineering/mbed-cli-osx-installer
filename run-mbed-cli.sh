@@ -23,7 +23,7 @@ MBED_CLI_PATH="$CWD/$GCC_PATH:$CWD/$PYTHON_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH"
 export MBED_CLI_PATH=$MBED_CLI_PATH
 export GCC_ARM_PATH=$"$CWD/$GCC_PATH" # override for mbed-cli, ensure we overridethe user local config
 echo "MBED_CLI_PATH is $MBED_CLI_PATH"
-export PYTHONPATH="$PYTHONPATH:$CWD/lib/python2.7" # work around for some older versions not finding packages
+export PYTHONPATH="$CWD/venv/lib/python2.7:$PYTHONPATH" # work around for some older versions not finding packages
 echo "PYTHONPATH is $PYTHONPATH"
 export PATH="$MBED_CLI_PATH:$PATH"
 echo "PATH is $PATH"
@@ -38,7 +38,7 @@ PS1='\[\033[36m\](mbed-cli)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
 # open --wait-apps --new --fresh -a /Applications/Utilities/Terminal.app test.sh
 
 # step into python virtual environment
-# source $RESOURCEPATH/venv/bin/activate
+source $RESOURCEPATH/venv/bin/activate
 
 clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 bash

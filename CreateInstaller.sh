@@ -14,7 +14,7 @@ MBED_HG_URL="https://www.mercurial-scm.org/mac/binaries/Mercurial-4.5-macosx10.1
 # tar xvf Payload
 # copy git files here : todo : 
 
-# TODO: Download and extract Mercurial
+# TODO: Download and extract Mercurial #just do this with pip intead
 # https://www.mercurial-scm.org/mac/binaries/Mercurial-4.5-macosx10.12.pkg
 # unzip
 # cd mercurial.pkg
@@ -24,7 +24,9 @@ MBED_HG_URL="https://www.mercurial-scm.org/mac/binaries/Mercurial-4.5-macosx10.1
 #Change shebang on both to use `#!/usr/bin/env python`
 
 # # create Virtual Environment
-# python -m virtualenv ./venv
+# mkdir venv
+# virtualenv venv
+# virtualenv --download --always-copy --relocatable venv   
 # # Make the links relative instead of sym linked
 # python -m virtualenv --relocatable ./venv
 # #Enter Virtual Environment
@@ -36,9 +38,13 @@ pip install -U mbed-ls==MBED_LS_VERSION
 pip install -U mbed-greentea==MBED_GREENTEA_VERSION
 pip install -U mbed-host-tests==MBED_HOST_TEST_VERSION
 pip install -U pyserial
-pip install -U elftools
-pip install -U fuzzywuzzy
 pip install -U mercurial
+pip install -U virtualenv
+# pip install -U elftools
+# pip install -U fuzzywuzzy
+# pip install -U mercurial
+# TODO: Manually adjust shebang for virtualenv and hg as virtualenv cannot do this itself
+
 
 
 # #exit Virtual Env

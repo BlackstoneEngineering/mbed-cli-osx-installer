@@ -6,11 +6,13 @@ Usage:
 """
 
 from setuptools import setup
+import os
 
 # Config section, change this for each release
 GCC_DIR='gcc'
 
 #Do not change anything below here
+VERSION = os.environ["MBED_INSTALLER_VERSION"] # Get version from env, set in CreateInstaller.sh
 APP = ['run-mbed-cli.py']
 APP_NAME = "MBED_CLI"
 DATA_FILES = ['run-mbed-cli.sh',GCC_DIR,"bin","git","venv"]
@@ -24,10 +26,10 @@ OPTIONS = {
         'CFBundleDisplayName': APP_NAME,
         'CFBundleGetInfoString': "Run MBED CLI",
         'CFBundleIdentifier': "com.armmbed.osx.mbed-cli",
-        'CFBundleVersion': "0.0.1",
-        'CFBundleShortVersionString': "0.0.1",
-        'NSHumanReadableCopyright': u"Copyright 2018 arm MBED All Rights Reserved",
-        'CFBundleIconFile':'mbed-cli-logo.icns'
+        'CFBundleVersion': VERSION,
+        'CFBundleShortVersionString': VERSION,
+        'NSHumanReadableCopyright': u"Copyright 2018 Arm Mbed All Rights Reserved",
+        'CFBundleIconFile':'./mbed-cli-logo.icns'
     }
 }
 

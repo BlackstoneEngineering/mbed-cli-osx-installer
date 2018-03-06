@@ -6,7 +6,7 @@ MBED_LS_VERSION="1.3.7"
 MBED_GREENTEA_VERSION="1.3.3"
 MBED_HOST_TEST_VERSION="1.3.1"
 MBED_GIT_URL="TODO"
-MBED_HG_URL="https://www.mercurial-scm.org/mac/binaries/Mercurial-4.5-macosx10.12.pkg"
+MBED_INSTALLER_VERSION="v0.0.3"
 # ------ DO NOT MODIFY BELOW HERE -----------
 
 # Download and extract git
@@ -14,46 +14,41 @@ MBED_HG_URL="https://www.mercurial-scm.org/mac/binaries/Mercurial-4.5-macosx10.1
 # tar xvf Payload
 # copy git files here : todo : 
 
-# TODO: Download and extract Mercurial #just do this with pip intead
-# https://www.mercurial-scm.org/mac/binaries/Mercurial-4.5-macosx10.12.pkg
-# unzip
-# cd mercurial.pkg
-# tar xcf Payload
-# cp hg /bin
-# cp chg /bin
-#Change shebang on both to use `#!/usr/bin/env python`
-
 # # create Virtual Environment
-# mkdir venv
-# virtualenv venv
-# virtualenv --download --always-copy --relocatable venv   
+rm -rf ./venv
+mkdir ./venv
+virtualenv --download --always-copy --unzip-setuptools ./venv   
 # # Make the links relative instead of sym linked
 # python -m virtualenv --relocatable ./venv
 # #Enter Virtual Environment
-# source ./venv/bin/activate
+source ./venv/bin/activate
 
 #Install Packages
-pip install -U mbed-cli==MBED_CLI_VERSION
-pip install -U mbed-ls==MBED_LS_VERSION
-pip install -U mbed-greentea==MBED_GREENTEA_VERSION
-pip install -U mbed-host-tests==MBED_HOST_TEST_VERSION
-pip install -U pyserial
-pip install -U mercurial
-pip install -U virtualenv
+pip install -I mbed-cli
+pip install -I mbed-ls
+pip install -I mbed-greentea
+pip install -I mbed-host-tests
+pip install -I mbed-flasher
+pip install -I pyserial
+pip install -I mercurial
+pip install -I virtualenv
 # pip install -U elftools
 # pip install -U fuzzywuzzy
 # pip install -U mercurial
-# TODO: Manually adjust shebang for virtualenv and hg as virtualenv cannot do this itself
+
 
 
 
 # #exit Virtual Env
-#  deactivate
+deactivate
+virtualenv --relocatable venv # make venv portable
+# TODO: Manually adjust shebang for virtualenv and hg as virtualenv cannot do this itself
+
 
 # build .APP
-chmod 777 ./run-mbed-cli.sh
-python setup.py py2app
+# chmod 777 ./run-mbed-cli.sh
+python setup.py py2app -vv > buildlog.txt # build .app, save log for debug
 
 
 # Create DMG from .app 
-# hdiutil create -fs HFS+ -srcfolder ./dist/MBED_CLI_v0.0.1.app -volname MBED_CLI_v0.0.1 mbed-cli-v0.0.1.dmg 
+hdiutil create -fs HFS+ -srcfolder ./dist/MBED_CLI.app -volname MBED_CLI"_$MBED_INSTALLER_VERSION" mbed-cli-"$MBED_INSTALLER_VERSION".dmg 

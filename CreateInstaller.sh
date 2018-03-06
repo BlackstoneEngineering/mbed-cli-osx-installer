@@ -9,6 +9,11 @@ MBED_GIT_URL="TODO"
 MBED_INSTALLER_VERSION="v0.0.3"
 # ------ DO NOT MODIFY BELOW HERE -----------
 
+# put version info into a file for later reference
+rm -rf ./VERSION.txt
+touch ./VERSION.txt
+'export MBED_INSTALLER_VERSION=$MBED_INSTALLER_VERSION' > VERSION.txt
+
 # Download and extract git
 # pkgutil --expand <git package>
 # tar xvf Payload

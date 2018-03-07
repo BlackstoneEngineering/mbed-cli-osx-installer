@@ -38,7 +38,7 @@ PS1='\[\033[36m\](mbed-cli)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
 # open --wait-apps --new --fresh -a /Applications/Utilities/Terminal.app test.sh
 
 # step into python virtual environment
-# source $RESOURCEPATH/venv/bin/activate
+source $RESOURCEPATH/venv/bin/activate
 
 # clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 bash

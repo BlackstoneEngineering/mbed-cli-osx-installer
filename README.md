@@ -52,5 +52,6 @@ Right, here are some suggestions
 
 # Ideas
 	- remove all calls to py2app python, focus only inside the venv folder
+		- done, but now cant find hashlib.... grrrr
 	- Try setting up .venv, then running a py2app from that environment, that way you can copy all site-packages, but the only thing in the packages will be the selected apps.
 	- Try modifying venv directory after creation but before being packaged, currently its setting the local user path where the venv is initially created and not a relative path within the .app as the `VIRTUAL_ENV` environment variable. This is incorrect. This is not being fixed even with `venv --relocatable MBED_CLI.app/Contents/Resources/venv`

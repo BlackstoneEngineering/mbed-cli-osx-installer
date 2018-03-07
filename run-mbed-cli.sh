@@ -7,7 +7,7 @@ GCC_PATH='gcc/gcc-arm-none-eabi-7-2017-q4-major/bin'
 
 ###### DO NOT TOUCH #####
 source $RESOURCEPATH/VERSION.txt # add MBED_INSTALLER_VERSION to env
-PYTHON_PATH="../MacOS"
+# PYTHON_PATH="../MacOS"
 MBED_BINS="bin"
 GIT_PATH="git"
 export GIT_TEMPLATE_DIR="$RESOURCEPATH/$GIT_PATH/share/git-core/templates" # prevent template warning in git
@@ -19,7 +19,7 @@ export MBED_INSTALLER_VERSION="$MBED_INSTALLER_VERSION"
 echo "MBED installer version is $MBED_INSTALLER_VERSION"
 CWD=$RESOURCEPATH # this is a hack to get around $PWD not directing to inside the .app
 echo "CWD is $CWD"
-MBED_CLI_PATH="$CWD/venv/bin:$CWD/$GCC_PATH:$CWD/$PYTHON_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH" # add necesary paths for tooling
+MBED_CLI_PATH="$CWD/venv:$CWD/venv/bin:$CWD/venv/lib:$CWD/venv/include:$CWD/$GCC_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH" # add necesary paths for tooling
 export MBED_CLI_PATH=$MBED_CLI_PATH
 export GCC_ARM_PATH=$"$CWD/$GCC_PATH" # override for mbed-cli, ensure we overridethe user local config
 echo "MBED_CLI_PATH is $MBED_CLI_PATH"

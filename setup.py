@@ -13,9 +13,10 @@ GCC_DIR='gcc'
 
 #Do not change anything below here
 VERSION = os.environ["MBED_INSTALLER_VERSION"] # Get version from env, set in CreateInstaller.sh
+print("\r\nInstaller Version "+VERSION)
 APP = ['run-mbed-cli.py']
 APP_NAME = "MBED_CLI"
-DATA_FILES = ['run-mbed-cli.sh',GCC_DIR,"bin","git","venv"]
+DATA_FILES = ['run-mbed-cli.sh',GCC_DIR,"bin","git","venv","VERSION.txt"]
 OPTIONS = {
     'argv_emulation': True,
     'iconfile': './mbed-cli-logo.icns',

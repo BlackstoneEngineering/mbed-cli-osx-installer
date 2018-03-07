@@ -13,6 +13,7 @@ echo "\r\n-----Starting Build----- \r\n"
 rm -rf ./VERSION.txt
 touch ./VERSION.txt
 echo "export MBED_INSTALLER_VERSION=\"$MBED_INSTALLER_VERSION\"" > VERSION.txt
+source ./VERSION.txt 
 echo "Building Installer Version $MBED_INSTALLER_VERSION"
 
 # Download and extract git

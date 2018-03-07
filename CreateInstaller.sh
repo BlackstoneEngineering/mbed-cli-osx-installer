@@ -25,7 +25,7 @@ echo "\r\n-----Downloading GIT-----\r\n"
 echo "\r\n-----Creating Virtual Environment----- \r\n"
 rm -rf ./venv
 mkdir ./venv
-virtualenv --download --always-copy --unzip-setuptools --no-site-packages -vv ./venv   
+virtualenv --download --always-copy --unzip-setuptools --system-site-packages -vv ./venv   
 # # Make the links relative instead of sym linked
 # python -m virtualenv --relocatable ./venv
 # #Enter Virtual Environment

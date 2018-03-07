@@ -6,13 +6,14 @@ MBED_LS_VERSION="1.3.7"
 MBED_GREENTEA_VERSION="1.3.3"
 MBED_HOST_TEST_VERSION="1.3.1"
 MBED_GIT_URL="TODO"
-MBED_INSTALLER_VERSION="v0.0.3"
+MBED_INSTALLER_VERSION="v0.0.4"
 # ------ DO NOT MODIFY BELOW HERE -----------
 echo "\r\n-----Starting Build----- \r\n"
 # put version info into a file for later reference
 rm -rf ./VERSION.txt
 touch ./VERSION.txt
 echo "export MBED_INSTALLER_VERSION=\"$MBED_INSTALLER_VERSION\"" > VERSION.txt
+echo "Building Installer Version $MBED_INSTALLER_VERSION"
 
 # Download and extract git
 echo "\r\n-----Downloading GIT-----\r\n"

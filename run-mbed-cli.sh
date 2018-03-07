@@ -19,7 +19,7 @@ export MBED_INSTALLER_VERSION="$MBED_INSTALLER_VERSION"
 echo "MBED installer version is $MBED_INSTALLER_VERSION"
 CWD=$RESOURCEPATH # this is a hack to get around $PWD not directing to inside the .app
 echo "CWD is $CWD"
-MBED_CLI_PATH="$CWD/venv/bin:$CWD/$GCC_PATH:$CWD/$PYTHON_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH"
+MBED_CLI_PATH="$CWD/venv/bin:$CWD/$GCC_PATH:$CWD/$PYTHON_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH" # add necesary paths for tooling
 export MBED_CLI_PATH=$MBED_CLI_PATH
 export GCC_ARM_PATH=$"$CWD/$GCC_PATH" # override for mbed-cli, ensure we overridethe user local config
 echo "MBED_CLI_PATH is $MBED_CLI_PATH"
@@ -38,9 +38,9 @@ PS1='\[\033[36m\](mbed-cli)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
 # open --wait-apps --new --fresh -a /Applications/Utilities/Terminal.app test.sh
 
 # step into python virtual environment
-source $RESOURCEPATH/venv/bin/activate
+# source $RESOURCEPATH/venv/bin/activate
 
-clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
+# clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 bash
 
 

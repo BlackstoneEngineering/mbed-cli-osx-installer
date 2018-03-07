@@ -8,20 +8,20 @@ MBED_HOST_TEST_VERSION="1.3.1"
 MBED_GIT_URL="TODO"
 MBED_INSTALLER_VERSION="v0.0.3"
 # ------ DO NOT MODIFY BELOW HERE -----------
-echo "Starting Build"
+echo "\r\n-----Starting Build----- \r\n"
 # put version info into a file for later reference
 rm -rf ./VERSION.txt
 touch ./VERSION.txt
-echo "export MBED_INSTALLER_VERSION=$MBED_INSTALLER_VERSION" > VERSION.txt
+echo "export MBED_INSTALLER_VERSION=\"$MBED_INSTALLER_VERSION\"" > VERSION.txt
 
 # Download and extract git
-echo "\r\nDownloading GIT\r\n"
+echo "\r\n-----Downloading GIT-----\r\n"
 # pkgutil --expand <git package>
 # tar xvf Payload
 # copy git files here : todo : 
 
 # # create Virtual Environment
-echo "\r\n Creating Virtual Environment \r\n"
+echo "\r\n-----Creating Virtual Environment----- \r\n"
 rm -rf ./venv
 mkdir ./venv
 virtualenv --download --always-copy --unzip-setuptools ./venv   
@@ -53,13 +53,13 @@ virtualenv --relocatable venv # make venv portable
 
 
 # build .APP
-echo "\r\nBuilding APP \r\n"
+echo "\r\n-----Building APP----- \r\n"
 rm -rf ./*.app
 chmod 777 ./run-mbed-cli.sh
 python setup.py py2app -vv > buildlog.txt # build .app, save log for debug
 
 
 # Create DMG from .app 
-echo "\r\n Packaging DMG \r\n"
+echo "\r\n-----Packaging DMG----- \r\n"
 rm -rf ./*.dmg
 hdiutil create -fs HFS+ -srcfolder ./dist/MBED_CLI.app -volname MBED_CLI"_$MBED_INSTALLER_VERSION" mbed-cli-"$MBED_INSTALLER_VERSION".dmg 

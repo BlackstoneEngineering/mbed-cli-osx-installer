@@ -57,5 +57,6 @@ Right, here are some suggestions
 		- try comparing the venv inside the .app with the one that its generated from, something is different. Maybe relative linkage to hashlib and other files?
 		- try adding everything to the path thats inside the venv
 		- try modifying PythonPath
+		- ** The problem is hashlib functions are not being moved into the virtual environment, they are left in the /usr/local/Cellar/.... they are not being copied by virtualenv setup
 	- Try setting up .venv, then running a py2app from that environment, that way you can copy all site-packages, but the only thing in the packages will be the selected apps.
 	- Try modifying venv directory after creation but before being packaged, currently its setting the local user path where the venv is initially created and not a relative path within the .app as the `VIRTUAL_ENV` environment variable. This is incorrect. This is not being fixed even with `venv --relocatable MBED_CLI.app/Contents/Resources/venv`

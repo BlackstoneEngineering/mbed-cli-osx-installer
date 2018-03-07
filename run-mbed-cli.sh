@@ -23,7 +23,7 @@ MBED_CLI_PATH="$CWD/venv:$CWD/venv/bin:$CWD/venv/lib:$CWD/venv/include:$CWD/$GCC
 export MBED_CLI_PATH=$MBED_CLI_PATH
 export GCC_ARM_PATH=$"$CWD/$GCC_PATH" # override for mbed-cli, ensure we overridethe user local config
 echo "MBED_CLI_PATH is $MBED_CLI_PATH"
-export PYTHONPATH="$CWD/venv/lib/python2.7:$PYTHONPATH" # work around for some older versions not finding packages
+export PYTHONPATH="$CWD/venv/lib/python2.7:$CWD/venv/include/python2.7:$CWD/venv/bin:$CWD/venv/lib/python2.7/site-package" # work around for some older versions not finding packages
 echo "PYTHONPATH is $PYTHONPATH"
 export PATH="$MBED_CLI_PATH:$PATH"
 echo "PATH is $PATH"

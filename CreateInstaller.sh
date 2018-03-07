@@ -32,14 +32,14 @@ virtualenv --download --always-copy --unzip-setuptools --system-site-packages -v
 source ./venv/bin/activate
 
 #Install Packages
-pip install -I mbed-cli
-pip install -I mbed-ls
-pip install -I mbed-greentea
-pip install -I mbed-host-tests
-pip install -I mbed-flasher
-pip install -I pyserial
-pip install -I mercurial
-pip install -I virtualenv
+pip install -U --no-binary all mbed-cli
+pip install -U --no-binary all mbed-ls
+pip install -U --no-binary all mbed-greentea
+pip install -U --no-binary all mbed-host-tests
+pip install -U --no-binary all mbed-flasher
+pip install -U --no-binary all pyserial
+pip install -U --no-binary all mercurial
+pip install -U --no-binary all virtualenv
 # pip install -U elftools
 # pip install -U fuzzywuzzy
 # pip install -U mercurial
@@ -49,6 +49,8 @@ pip install -I virtualenv
 
 # #exit Virtual Env
 deactivate
+
+echo "\r\n-----Make venv Relocatable----- \r\n"
 virtualenv --relocatable -vv ./venv # make venv portable
 # TODO: Manually adjust shebang for virtualenv and hg as virtualenv cannot do this itself
 
@@ -63,4 +65,4 @@ python setup.py py2app -vv > buildlog.txt # build .app, save log for debug
 # Create DMG from .app 
 echo "\r\n-----Packaging DMG----- \r\n"
 rm -rf ./*.dmg
-hdiutil create -fs HFS+ -srcfolder ./dist/MBED_CLI.app -volname MBED_CLI"_$MBED_INSTALLER_VERSION" mbed-cli-"$MBED_INSTALLER_VERSION".dmg 
+# hdiutil create -fs HFS+ -srcfolder ./dist/MBED_CLI.app -volname MBED_CLI"_$MBED_INSTALLER_VERSION" mbed-cli-"$MBED_INSTALLER_VERSION".dmg 

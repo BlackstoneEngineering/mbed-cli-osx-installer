@@ -61,3 +61,6 @@ Right, here are some suggestions
 		- ** The problem is hashlib functions are not being moved into the virtual environment, they are left in the /usr/local/Cellar/.... they are not being copied by virtualenv setup
 	- Try setting up .venv, then running a py2app from that environment, that way you can copy all site-packages, but the only thing in the packages will be the selected apps.
 	- Try modifying venv directory after creation but before being packaged, currently its setting the local user path where the venv is initially created and not a relative path within the .app as the `VIRTUAL_ENV` environment variable. This is incorrect. This is not being fixed even with `venv --relocatable MBED_CLI.app/Contents/Resources/venv`
+	- Try installing python from https://www.python.org/downloads/release/python-2714/ instead of from brew, see if it works any better
+
+	-Tenative Solution : Copy paste the entire /Library/Frameworks/Python.Framework/Versions/2.7/ lib/python2.7 and include/python2.7 across to the VE and it works. Looks like VE simply wasnt copying everything it should be. 

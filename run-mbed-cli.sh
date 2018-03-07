@@ -19,7 +19,7 @@ export MBED_INSTALLER_VERSION="$MBED_INSTALLER_VERSION"
 echo "MBED installer version is $MBED_INSTALLER_VERSION"
 CWD=$RESOURCEPATH # this is a hack to get around $PWD not directing to inside the .app
 echo "CWD is $CWD"
-MBED_CLI_PATH="$CWD/$GCC_PATH:$CWD/$PYTHON_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH"
+MBED_CLI_PATH="$CWD/venv/bin:$CWD/$GCC_PATH:$CWD/$PYTHON_PATH:$CWD/$MBED_BINS:$CWD/$GIT_PATH"
 export MBED_CLI_PATH=$MBED_CLI_PATH
 export GCC_ARM_PATH=$"$CWD/$GCC_PATH" # override for mbed-cli, ensure we overridethe user local config
 echo "MBED_CLI_PATH is $MBED_CLI_PATH"

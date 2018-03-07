@@ -6,7 +6,7 @@
 GCC_PATH='gcc/gcc-arm-none-eabi-7-2017-q4-major/bin'
 
 ###### DO NOT TOUCH #####
-source ./VERSION.txt # add MBED_INSTALLER_VERSION to env
+source $RESOURCEPATH/VERSION.txt # add MBED_INSTALLER_VERSION to env
 PYTHON_PATH="../MacOS"
 MBED_BINS="bin"
 GIT_PATH="git"

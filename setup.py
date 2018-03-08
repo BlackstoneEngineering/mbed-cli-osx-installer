@@ -9,6 +9,7 @@ from setuptools import setup
 
 # Config section, change this for each release
 GCC_DIR='gcc'
+includes = [] # copy the output from get_includes.py here
 
 #Do not change anything below here
 APP = ['run-mbed-cli.py']
@@ -17,8 +18,9 @@ DATA_FILES = ['run-mbed-cli.sh',GCC_DIR,"bin","git"]
 OPTIONS = {
     'argv_emulation': True,
     'iconfile': './mbed-cli-logo.icns',
-    'packages':['mbed','mbed_lstools','mbed_greentea','mbed_host_tests',"serial","bs4","jinja2","elftools","fuzzywuzzy","mercurial","hgdemandimport","hgext","hgext3rd"],
-    # 'includes': "mbed,mbed_lstools,mbed_greentea,mbed_host_tests",
+    'packages':["libpasteurize","funcsigs","mbed","socketserver","mbed_flasher","certifi","mbed_greentea","urllib3","chardet","mbed_host_tests","websocket","html","pyOCD","colorama","http","idna","mbed_lstools","copyreg","queue","intelhex","reprlib","xmlrpc","mock","requests","enum","junit_xml","fasteners","libfuturize","serial","bs4","jinja2","elftools","fuzzywuzzy","mercurial","hgdemandimport","hgext","hgext3rd"],
+    'includes': "prettytable,six,appdirs,monotonic,hid.so",
+    'includes':includes,
     'plist': {
         'CFBundleName': APP_NAME,
         'CFBundleDisplayName': APP_NAME,

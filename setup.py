@@ -14,11 +14,11 @@ includes = [] # copy the output from get_includes.py here
 #Do not change anything below here
 APP = ['run-mbed-cli.py']
 APP_NAME = "MBED_CLI"
-DATA_FILES = ['run-mbed-cli.sh',GCC_DIR,"bin","git"]
+DATA_FILES = ['run-mbed-cli.sh',GCC_DIR,"bin","git","mbed-cli-logo.icns"]
 OPTIONS = {
     'argv_emulation': True,
-    'iconfile': './mbed-cli-logo.icns',
-    'packages':["libpasteurize","funcsigs","mbed","socketserver","mbed_flasher","certifi","mbed_greentea","urllib3","chardet","mbed_host_tests","websocket","html","pyOCD","colorama","http","idna","mbed_lstools","copyreg","queue","intelhex","reprlib","xmlrpc","mock","requests","enum","junit_xml","fasteners","libfuturize","serial","bs4","jinja2","elftools","fuzzywuzzy","mercurial","hgdemandimport","hgext","hgext3rd"],
+    'iconfile': 'mbed-cli-logo.icns',
+    'packages':["libpasteurize","funcsigs","mbed","socketserver","mbed_flasher","certifi","mbed_greentea","urllib3","chardet","mbed_host_tests","websocket","html","pyOCD","colorama","http","idna","mbed_lstools","copyreg","queue","intelhex","reprlib","xmlrpc","mock","requests","enum","junit_xml","fasteners","libfuturize","serial","bs4","jinja2","elftools","fuzzywuzzy","mercurial","hgdemandimport","hgext","hgext3rd","distutils","pip"],
     'includes': "prettytable,six,appdirs,monotonic,hid.so",
     'includes':includes,
     'plist': {

@@ -32,6 +32,20 @@ pip install -U mercurial
 pip install -U bs4
 pip install pyelftools
 pip install Jinja2
+pip install colorama>=0.3.3
+pip install PySerial>=2.7
+pip install PrettyTable>=0.7.2
+pip install Jinja2>=2.7.3
+pip install IntelHex>=1.3
+pip install junit-xml
+pip install pyYAML
+pip install requests
+pip install mbed-ls>=0.2.13
+pip install mbed-host-tests>=1.1.2
+pip install mbed-greentea>=0.2.24
+pip install beautifulsoup4>=4
+pip install fuzzywuzzy>=0.11
+pip install pyelftools>=0.24
 
 
 # #exit Virtual Env

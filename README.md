@@ -41,6 +41,7 @@ Right, here are some suggestions
 1) `chmod 777 run-mbed-cli.sh` - do this because Terminal.app is finicky and this helps sometimes
 2) Make sure you are building the app with non-system python. Install Python from brew or something. The following command should return false `python -c "import py2app.build_app; print py2app.build_app.is_system()"`
 3) Cannot find packages, getting an error like 'UserWarning: No package named mbed-cli' when trying to build. Solution : the site packages found by Py2app does not contain the modules. Try copying things from the Brew site-packages to your system-python site-packages. 
+4) make sure the .app has no spaces in the name, this will cause issues for the underlying scripts. 
 
 
 --------

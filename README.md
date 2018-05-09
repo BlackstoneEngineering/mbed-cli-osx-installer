@@ -32,7 +32,8 @@ Go build awesome.
 	- For compiler updates, unzip the folder into the gcc folder, then modify the setup.py and run-mbed-cli.sh files config section to trace the new path
 	- for adding new tools like mbedls and mbed-cli that should have user available calls from the command like `$mbed` you should add them to the `bin` folder. Make sure to modify the shebang to be similar to existing aliases in the bin folder. 
 2) Run the command `sudo sh ./CreateInstaller.sh`
-3) The app is now in `dist/MBED_CLI.app`
+3) Use Platypus to create .app
+	- bundle the gcc, git, source folders, and the requirements.txt and miniconda___.sh files. 
 
 
 --------
@@ -49,3 +50,12 @@ Right, here are some suggestions
 - update `CreateInstaller.sh` to install python packages from pip directly to install directory instead of installing to the computer
 
 
+#TODO:
+- package up all python packages so it works offline
+	* to install we run: ./Miniconda2.sh -b -p /path/to/desired/location
+	we use pip2pi (not py2pi, sorry) to create a local-repo.zip
+	basically need to run something like `pip2pi local-repo -r /path/to/requirements.txt` to create a directory that looks similar to a pypi repo and zip that up and send it along with miniconda. You only need to do this if you want to install pip requirements offline.
+	then, back in the directory where you just installed miniconda, call `./bin/pip install pyocd --no-index --find-links ./local-repo/` to install from a pre-packaged repo, or `./bin/pip install pyocd` to install from online
+- Flush out `CreateInstaller.sh` so it can actually create the installer and package it up
+- document the hell out of the platypus settings so this whole thins can be redone later. 
+- Fix annoying 'doesnt work if folders have spaces in the names' thing. Pretty sure it comes down to use of quotes somewhere

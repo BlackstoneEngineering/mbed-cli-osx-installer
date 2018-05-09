@@ -57,4 +57,6 @@ REFPATH = '$CWD'
 APPNAME = 'mbedcli.app'
 RESOURCEPATH = '$REFPATH/$APPNAME/Contents/Resources'
 cd '$RESOURCEPATH'
+# get requirements for mbed OS
+curl -O https://raw.githubusercontent.com/ARMmbed/mbed-os/master/requirements.txt
 sh $RESOURCEPATH/Miniconda2-latest-MacOSX-x86_64.sh -b -p $RESOURCEPATH/miniconda -f 

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 #/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
 
@@ -44,11 +44,8 @@
 # bash
 
 CWD=$PWD
-MBED_CLI_PATH="$CWD/bin:$CWD/git:$CWD/gcc/gcc-arm-none-eabi-7-2017-q4-major/bin:"
-echo "mbedcli path = $MBED_CLI_PATH"
-PATH="$MBED_CLI_PATH:$PATH"
-echo "path = $PATH"
-export PATH=$PATH
+MBED_CLI_PATH="$CWD/bin:$CWD/git/bin:$CWD/gcc/gcc-arm-none-eabi-7-2017-q4-major/bin:"
+# 
 #virtualenv workspace
 #/bin/bash "$CWD/source/test.sh" $CWD
 #open --fresh -a Terminal.app $CWD/source/test.sh
@@ -56,25 +53,32 @@ export PATH=$PATH
 #exec "$CWD"/source/test.sh $CWD
 #exec bash $CWD/workspace/bin/activate
 #source "$CWD"/source/test.sh $CWD
-echo "starting up"
-echo "export MBED_CLI_PATH='$MBED_CLI_PATH'
+echo "***starting up, creating avtivateVE.sh"
+echo "#!/usr/bin/env sh
+export MBED_CLI_PATH='$MBED_CLI_PATH'
 export MBEDCLI_CWD=\"$CWD\"
-source \"$CWD\"/miniconda/bin/activate
-clear
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
-export PS1='(yotta workspace) \W \\$'
+export PS1='(Mbed CLI) \W \\$'
 PS1='\[\033[36m\](mbed CLI)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
-/bin/sh
+export PATH=\"$MBED_CLI_PATH:$PATH\"
+/usr/bin/sh
+echo '***mbedcli path = $MBED_CLI_PATH'
+PATH='\"$MBED_CLI_PATH\":$PATH'
+export PATH='\"$MBED_CLI_PATH\":$PATH'
+echo '***path = $PATH'
+source \"$CWD/miniconda/bin/activate\"
+echo '***miniconda should be running now'
+bash
+">"$CWD/source/activateVE.sh"
 
-">"$CWD"/source/activateVE.sh
-chmod 777 "$CWD"/source/activateVE.sh
-echo "check miniconda is installed"
+chmod 777 "$CWD/source/activateVE.sh"
+echo "*** check miniconda is installed"
 source "$CWD/source/verify-miniconda-install.sh"
+export PATH="$MBED_CLI_PATH:$PATH"
 
-echo "about to run terminal"
-open --fresh -a Terminal.app "$CWD"/source/activateVE.sh
+echo "*** about to run terminal"
+open --fresh -a Terminal.app "$CWD/source/activateVE.sh"
 #rm '$CWD/source/activateVE.sh'
-echo "virtualenv should be running now..."
-#pip install -U yotta
+echo "*** virtualenv should be running now..."
 

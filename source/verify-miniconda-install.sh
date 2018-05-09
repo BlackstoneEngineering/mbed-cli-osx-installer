@@ -11,6 +11,7 @@ if [ ! -d "$PWD/miniconda" ]; then
   	pip install -U mbed-cli
   	pip install -r "$PWD/requirements.txt"
   	pip install -U mercurial
+  	pip install -U mbed-greentea
   	source deactivate
 elif source "$PWD/miniconda/bin/activate"; then
 	# check miniconda works
@@ -24,5 +25,6 @@ else
   	pip install -U mbed-cli
   	pip install -r "$PWD/requirements.txt"
   	pip install -U mercurial
+  	pip install -U mbed-greentea
   	source deactivate
 fi

@@ -55,6 +55,7 @@ MBED_CLI_PATH="$CWD/bin:$CWD/git/bin:$CWD/gcc/gcc-arm-none-eabi-7-2017-q4-major/
 #source "$CWD"/source/test.sh $CWD
 echo "***starting up, creating avtivateVE.sh"
 echo "#!/usr/bin/env sh
+MBED_INSTALLER_VERSION='0.0.1'
 export MBED_CLI_PATH='$MBED_CLI_PATH'
 export MBEDCLI_CWD=\"$CWD\"
 export CLICOLOR=1
@@ -80,6 +81,7 @@ source "$CWD/source/verify-miniconda-install.sh"
 export PATH="$MBED_CLI_PATH:$PATH"
 
 echo "*** about to run terminal"
+# open --wait-apps --new --fresh -a /Applications/Utilities/Terminal.app "$CWD/source/activateVE.sh"
 open --fresh -a Terminal.app "$CWD/source/activateVE.sh"
 #rm '$CWD/source/activateVE.sh'
 echo "*** virtualenv should be running now..."

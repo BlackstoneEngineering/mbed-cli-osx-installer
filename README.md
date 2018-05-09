@@ -29,11 +29,12 @@ Go build awesome.
 
 # How to Build
 1) Update all dependencies in repo (GCC, Python Eggs, ...etc)
-	- For compiler updates, unzip the folder into the gcc folder, then modify the setup.py and run-mbed-cli.sh files config section to trace the new path
-	- for adding new tools like mbedls and mbed-cli that should have user available calls from the command like `$mbed` you should add them to the `bin` folder. Make sure to modify the shebang to be similar to existing aliases in the bin folder. 
-2) Run the command `sudo sh ./CreateInstaller.sh`
+	- For compiler updates, unzip the folder into the gcc folder, then modify the  `source/run-mbed-cli.sh` files config section to match the new path
+	- for adding new tools like mbedls and mbed-cli that should have user available calls from the commandline like `$mbed` you should add them to the `requirements.txt` file.
+		- I suggest updating the requirements.txt file each release by running 'curl -O https://raw.githubusercontent.com/ARMmbed/mbed-os/master/requirements.txt'
 3) Use Platypus to create .app
 	- bundle the gcc, git, source folders, and the requirements.txt and miniconda___.sh files. 
+	- Should look like this : ![Platypus-Settings.png](Platypus-Settings.png)
 
 
 --------

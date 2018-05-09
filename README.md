@@ -32,23 +32,23 @@ Go build awesome.
 	- For compiler updates, unzip the folder into the gcc folder, then modify the  `source/run-mbed-cli.sh` files config section to match the new path
 	- for adding new tools like mbedls and mbed-cli that should have user available calls from the commandline like `$mbed` you should add them to the `requirements.txt` file.
 		- I suggest updating the requirements.txt file each release by running 'curl -O https://raw.githubusercontent.com/ARMmbed/mbed-os/master/requirements.txt'
-3) Use Platypus to create .app
+2) Use Platypus to create .app
 	- bundle the gcc, git, source folders, and the requirements.txt and miniconda___.sh files. 
 	- Should look like this : ![Platypus-Settings.png](Platypus-Settings.png)
+3) Bundle the generate .app into a .DMG using this command
+	- `hdiutil create -fs HFS+ -srcfolder ./MBED_CLI.app -volname MBED_CLI mbed-cli-v0.0.1.dmg `
 
 
 --------
 # Help, things have gone quite wrong
 Right, here are some suggestions
 1) `chmod 777 run-mbed-cli.sh` - do this because Terminal.app is finicky and this helps sometimes
-2) Make sure you are building the app with non-system python. Install Python from brew or something. The following command should return false `python -c "import py2app.build_app; print py2app.build_app.is_system()"`
-3) Cannot find packages, getting an error like 'UserWarning: No package named mbed-cli' when trying to build. Solution : the site packages found by Py2app does not contain the modules. Try copying things from the Brew site-packages to your system-python site-packages. 
-4) make sure the .app has no spaces in the name, this will cause issues for the underlying scripts. 
+2) make sure the .app has no spaces in the name, this will cause issues for the underlying scripts.
 
 
 --------
 # Planned Updates
-- update `CreateInstaller.sh` to install python packages from pip directly to install directory instead of installing to the computer
+- Include python eggs in installer, currenlty installing from pip. Need to get rid of this dependency
 
 
 #TODO:
@@ -57,6 +57,6 @@ Right, here are some suggestions
 	we use pip2pi (not py2pi, sorry) to create a local-repo.zip
 	basically need to run something like `pip2pi local-repo -r /path/to/requirements.txt` to create a directory that looks similar to a pypi repo and zip that up and send it along with miniconda. You only need to do this if you want to install pip requirements offline.
 	then, back in the directory where you just installed miniconda, call `./bin/pip install pyocd --no-index --find-links ./local-repo/` to install from a pre-packaged repo, or `./bin/pip install pyocd` to install from online
-- Flush out `CreateInstaller.sh` so it can actually create the installer and package it up
-- document the hell out of the platypus settings so this whole thins can be redone later. 
+- Flush out `CreateInstaller.sh` so it can actually create the installer and package it up, currently too many manual steps required. 
+- get mbed CLI icon to work 
 - Fix annoying 'doesnt work if folders have spaces in the names' thing. Pretty sure it comes down to use of quotes somewhere

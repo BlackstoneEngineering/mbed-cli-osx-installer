@@ -59,17 +59,19 @@ export MBED_CLI_PATH='$MBED_CLI_PATH'
 export MBEDCLI_CWD=\"$CWD\"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
-export PS1='(Mbed CLI) \W \\$'
-PS1='\[\033[36m\](mbed CLI)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
 export PATH=\"$MBED_CLI_PATH:$PATH\"
-/usr/bin/sh
 echo '***mbedcli path = $MBED_CLI_PATH'
 PATH='\"$MBED_CLI_PATH\":$PATH'
 export PATH='\"$MBED_CLI_PATH\":$PATH'
 echo '***path = $PATH'
 source \"$CWD/miniconda/bin/activate\"
 echo '***miniconda should be running now'
+export PS1='(Mbed CLI) \W \\$'
+PS1='\[\033[36m\](mbed CLI)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
+clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 bash
+clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
+
 ">"$CWD/source/activateVE.sh"
 
 chmod 777 "$CWD/source/activateVE.sh"

@@ -42,9 +42,11 @@
 
 # clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 # bash
-
+echo "*** Run-mbed-cli.sh ***"
+export MBED_CLI_CONEXT="true"
 CWD=$PWD
 MBED_CLI_PATH="$CWD/bin:$CWD/git/bin:$CWD/gcc/gcc-arm-none-eabi-7-2017-q4-major/bin:"
+env
 # 
 #virtualenv workspace
 #/bin/bash "$CWD/source/test.sh" $CWD
@@ -54,35 +56,42 @@ MBED_CLI_PATH="$CWD/bin:$CWD/git/bin:$CWD/gcc/gcc-arm-none-eabi-7-2017-q4-major/
 #exec bash $CWD/workspace/bin/activate
 #source "$CWD"/source/test.sh $CWD
 echo "***starting up, creating avtivateVE.sh"
-echo "#!/usr/bin/env sh
+# echo "#!/usr/bin/env sh
 MBED_INSTALLER_VERSION='0.0.4'
-export MBED_CLI_PATH='$MBED_CLI_PATH'
-export MBEDCLI_CWD=\"$CWD\"
+export GIT_TEMPLATE_DIR="$CWD/git/share/git-core/templates" 
+export GIT_EXEC_PATH="$CWD/git/libexec/git-core" 
+export MBED_CLI_PATH="$MBED_CLI_PATH"
+export MBEDCLI_CWD="$CWD"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
-export PATH=\"$MBED_CLI_PATH:$PATH\"
+export PATH="$MBED_CLI_PATH:$PATH"
 echo '***mbedcli path = $MBED_CLI_PATH'
-PATH='\"$MBED_CLI_PATH\":$PATH'
-export PATH='\"$MBED_CLI_PATH\":$PATH'
+PATH="$MBED_CLI_PATH:$PATH"
+export PATH="$MBED_CLI_PATH:$PATH"
 echo '***path = $PATH'
-source \"$CWD/miniconda/bin/activate\"
+source "$CWD/miniconda/bin/activate"
 echo '***miniconda should be running now'
 export PS1='(Mbed CLI) \W \\$'
 PS1='\[\033[36m\](mbed CLI)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
-clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
-bash
-clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
+# clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
+# bash
+# clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 
-">"$CWD/source/activateVE.sh"
+# ">"$CWD/source/activateVE.sh"
 
-chmod 777 "$CWD/source/activateVE.sh"
+# chmod 777 "$CWD/source/activateVE.sh"
 echo "*** check miniconda is installed"
-source "$CWD/source/verify-miniconda-install.sh"
+# source "$CWD/source/verify-miniconda-install.sh"
+env
 export PATH="$MBED_CLI_PATH:$PATH"
 
 echo "*** about to run terminal"
 # open --wait-apps --new --fresh -a /Applications/Utilities/Terminal.app "$CWD/source/activateVE.sh"
-open --fresh -a Terminal.app "$CWD/source/activateVE.sh"
+# open --fresh -a Terminal.app "$CWD/source/activateVE.sh"
+# xterm "$CWD/source/activateVE.sh"
 #rm '$CWD/source/activateVE.sh'
 echo "*** virtualenv should be running now..."
 
+env
+echo "argv values are 0 = $0, \r\n1 = $1, \r\n$2, \r\n$3, \r\n$4"
+bash

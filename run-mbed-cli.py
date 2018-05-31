@@ -4,6 +4,11 @@ import os
 x = os.getcwd();
 print "Printing from run-mbed-cli.py, x="+x
 os.environ["MBED_CLI_APP_DIR"] = str(x);
+
+f = open("~/.mbed/.mbed-cli-app",w)
+f.write("MBED_CLI_APP_DIR="+str(x))
+f.close()
+
 # open Terminal and call run-mbed-cli.sh, use Popen instead of subprocess.call to pass in environment variables
 subprocess.Popen(
     ["/usr/bin/open", "--fresh", "-a", "/Applications/Utilities/Terminal.app", "source/run-mbed-cli.sh"]

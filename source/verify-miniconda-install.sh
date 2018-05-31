@@ -1,5 +1,7 @@
 #! /usr/bin/sh
 # Check miniconda is installed
+source ~/.mbed/.mbed-cli-app
+
 CWD=$MBED_CLI_APP_DIR
 cd $CWD
 echo "verifying miniconda installed at $CWD/miniconda"

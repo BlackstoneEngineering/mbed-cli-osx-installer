@@ -1,12 +1,16 @@
 import subprocess
 import os
 
-x = os.getcwd();
-print "Printing from run-mbed-cli.py, x="+x
-os.environ["MBED_CLI_APP_DIR"] = str(x);
+cwd = os.getcwd();
+print "Printing from run-mbed-cli.py\r\n MBED_CLI_APP_DIR="+cwd
+os.environ["MBED_CLI_APP_DIR"] = str(cwd); # maybe this will work, maybe it wont.
 
-f = open("~/.mbed/.mbed-cli-app",w)
-f.write("MBED_CLI_APP_DIR="+str(x))
+
+#just in case lets write it to a file
+home = os.environ["HOME"]
+print "$HOME= "+home
+f = open(home+'/.mbed/.mbed-cli-app','w+')
+f.write("MBED_CLI_APP_DIR="+str(cwd))
 f.close()
 
 # open Terminal and call run-mbed-cli.sh, use Popen instead of subprocess.call to pass in environment variables

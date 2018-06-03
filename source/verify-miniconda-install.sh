@@ -1,5 +1,7 @@
 #! /usr/bin/sh
 # Check miniconda is installed
+
+# This should grab the MBED_CLI_APP_DIR variable set by the installer. Done as a workaround for OSX Sandboxes
 source ~/.mbed/.mbed-cli-app
 
 CWD=$MBED_CLI_APP_DIR

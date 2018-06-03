@@ -48,7 +48,7 @@ export MBED_CLI_CONEXT="true"
 source ~/.mbed/.mbed-cli-app
 export MBED_CLI_APP_DIR=$MBED_CLI_APP_DIR
 CWD=$MBED_CLI_APP_DIR
-MBED_CLI_PATH="$CWD/bin:$CWD/git/bin:$CWD/gcc/gcc-arm-none-eabi-7-2017-q4-major/bin:"
+MBED_CLI_PATH="$CWD/bin:$CWD/git/bin:$CWD/gcc/gcc-arm-none-eabi-6-2017-q2-update/bin:"
 echo "MBED_CLI_APP_DIR = " $MBED_CLI_APP_DIR
 env
 # 

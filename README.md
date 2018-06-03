@@ -35,8 +35,7 @@ Go build awesome.
 2) Use Platypus to create .app
 	- bundle the gcc, git, source folders, and the requirements.txt and miniconda___.sh files. 
 	- Should look like this : ![Platypus-Settings.png](Platypus-Settings.png)
-3) Bundle the generate .app into a .DMG using this command
-	- `hdiutil create -fs HFS+ -srcfolder ./MBED_CLI.app -volname MBED_CLI mbed-cli-v0.0.1.dmg `
+4) bundle the .app into a dmg using appdmg (`npm install -g appdmg`) by running this command : `appdmg dmg-spec.json mbed-cli-v[version].dmg`
 
 
 --------
@@ -59,4 +58,4 @@ Right, here are some suggestions
 	then, back in the directory where you just installed miniconda, call `./bin/pip install pyocd --no-index --find-links ./local-repo/` to install from a pre-packaged repo, or `./bin/pip install pyocd` to install from online
 - Flush out `CreateInstaller.sh` so it can actually create the installer and package it up, currently too many manual steps required. 
 - get mbed CLI icon to work 
-- Fix annoying 'doesnt work if folders have spaces in the names' thing. Pretty sure it comes down to use of quotes somewhere
+- Fix annoying 'doesnt work if folders have spaces in the names' thing. Pretty sure it comes down to use of quotes somewhere-

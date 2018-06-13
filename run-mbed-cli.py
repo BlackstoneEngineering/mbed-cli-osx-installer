@@ -9,9 +9,23 @@ os.environ["MBED_CLI_APP_DIR"] = str(cwd); # maybe this will work, maybe it wont
 #just in case lets write it to a file
 home = os.environ["HOME"]
 print "$HOME= "+home
-f = open(home+'/.mbed/.mbed-cli-app','w+')
-f.write("MBED_CLI_APP_DIR="+str(cwd))
-f.close()
+# Create directory if needed, then file
+filename = home+'/.mbed/.mbed-cli-app'
+if not os.path.exists(os.path.dirname(filename)):
+    try:
+        os.makedirs(os.path.dirname(filename))
+    except OSError as exc: # Guard against race condition
+        if exc.errno != errno.EEXIST:
+            raise
+
+with open(filename, "w+") as f:
+    f.write("MBED_CLI_APP_DIR="+str(cwd))
+    f.close()
+
+
+# f = open(home+'/.mbed/.mbed-cli-app','w+')
+# f.write("MBED_CLI_APP_DIR="+str(cwd))
+# f.close()
 
 # open Terminal and call run-mbed-cli.sh, use Popen instead of subprocess.call to pass in environment variables
 subprocess.Popen(

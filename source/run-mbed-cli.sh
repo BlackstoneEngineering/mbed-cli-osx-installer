@@ -79,9 +79,8 @@ source "$CWD/miniconda/bin/activate"
 echo '***miniconda should be running now'
 export PS1='(Mbed CLI) \W \\$'
 PS1='\[\033[36m\](mbed CLI)\[\033[m\] \[\033[32m\]\w\[\033[m\] \\$ '
-# clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
-bash
-# clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
+clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
+bash && clear && printf '\e[3J' # clear screen and scrollback, comment out this line to see comment echo's
 
 # ">"$CWD/source/activateVE.sh"
 
